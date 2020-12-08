@@ -7,7 +7,7 @@
     <authors>gonace,laget.se</authors>
     <owners>laget.se</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>.</description>
+    <description>Default implementation of Secure Pre-Shared Key (PSK) Authentication for laget.se using Rijndael.</description>
     <summary></summary>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/laget-se/laget.PskAuthentication</projectUrl>
