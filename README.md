@@ -1,4 +1,5 @@
-﻿# laget.PskAuthentication
+# laget.PskAuthentication
+Default implementation of Secure Pre-Shared Key (PSK) Authentication for laget.se using Rijndael.
 
 ## Usage
 ### appsettings.json
