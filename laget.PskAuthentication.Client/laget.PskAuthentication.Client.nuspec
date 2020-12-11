@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>laget.PskAuthentication</id>
-    <title>laget.PskAuthentication</title>
+    <id>laget.PskAuthentication.Client</id>
+    <title>laget.PskAuthentication.Client</title>
     <version>$version$</version>
     <authors>gonace,laget.se</authors>
     <owners>laget.se</owners>

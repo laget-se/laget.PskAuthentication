@@ -13,7 +13,7 @@ namespace laget.PskAuthentication.Client
         readonly string _salt;
         readonly string _secret;
 
-        protected HashAlgorithm Algorithm { get; set; } = SHA512.Create();
+        HashAlgorithm Algorithm { get; set; } = SHA512.Create();
 
         public PskGenerator(string rijndaelIv, string rijndaelKey)
         {
@@ -45,6 +45,8 @@ namespace laget.PskAuthentication.Client
 
         string GetHash(string salt, string secret)
         {
+            var type = Algorithm.GetType();
+
             using (var algo = Algorithm)
             {
                 var hash = algo.ComputeHash(Encoding.Default.GetBytes(secret + salt));
