@@ -25,7 +25,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\laget.PskAuthentication\laget.PskAuthentication.csproj" />
+    <ProjectReference Include="..\laget.PskAuthentication.Client\laget.PskAuthentication.Client.csproj" />
+    <ProjectReference Include="..\laget.PskAuthentication.Core\laget.PskAuthentication.Core.csproj" />
+    <ProjectReference Include="..\laget.PskAuthentication.Mvc\laget.PskAuthentication.Mvc.csproj" />
   </ItemGroup>
 
 </Project>

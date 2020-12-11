@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Security.Cryptography;
-using laget.PskAuthentication.Exceptions;
-using laget.PskAuthentication.Extensions;
+using laget.PskAuthentication.Core.Exceptions;
+using laget.PskAuthentication.Core.Extensions;
 
-namespace laget.PskAuthentication
+namespace laget.PskAuthentication.Core
 {
     public class Psk
     {

@@ -1,15 +1,15 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 
-namespace laget.PskAuthentication
+namespace laget.PskAuthentication.Mvc
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
     public class PskAuthenticationAttribute : TypeFilterAttribute
     {
-        public PskAuthenticationAttribute(string pskKey = "Security:PSK")
+        public PskAuthenticationAttribute(string prefix = "Security")
             : base(typeof(PskAuthenticationFilter))
         {
-            Arguments = new object[] { pskKey };
+            Arguments = new object[] { prefix };
         }
     }
 }

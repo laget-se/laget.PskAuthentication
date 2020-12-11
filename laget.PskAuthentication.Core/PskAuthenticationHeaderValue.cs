@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Security;
 using System.Security.Cryptography;
-using laget.PskAuthentication.Exceptions;
+using laget.PskAuthentication.Core.Exceptions;
 
-namespace laget.PskAuthentication
+namespace laget.PskAuthentication.Core
 {
     public class PskAuthenticationHeaderValue
     {

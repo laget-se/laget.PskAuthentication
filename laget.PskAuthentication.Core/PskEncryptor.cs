@@ -2,7 +2,7 @@
 using System.IO;
 using System.Security.Cryptography;
 
-namespace laget.PskAuthentication
+namespace laget.PskAuthentication.Core
 {
     public static class PskEncryptor
     {

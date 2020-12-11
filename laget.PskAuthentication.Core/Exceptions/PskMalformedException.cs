@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace laget.PskAuthentication.Exceptions
+namespace laget.PskAuthentication.Core.Exceptions
 {
     public class PskMalformedException : Exception
     {

@@ -1,25 +1,26 @@
 ﻿using System;
 using System.Text;
-using laget.PskAuthentication.Exceptions;
-using laget.PskAuthentication.Extensions;
+using laget.PskAuthentication.Core;
+using laget.PskAuthentication.Core.Exceptions;
+using laget.PskAuthentication.Core.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace laget.PskAuthentication
+namespace laget.PskAuthentication.Mvc
 {
     public class PskAuthenticationFilter : IAuthorizationFilter
     {
-        readonly string _pskKey;
+        readonly string _prefix;
 
-        public PskAuthenticationFilter(string pskKey)
+        public PskAuthenticationFilter(string prefix)
         {
-            _pskKey = pskKey;
+            _prefix = prefix;
 
-            if (string.IsNullOrWhiteSpace(_pskKey))
+            if (string.IsNullOrWhiteSpace(_prefix))
             {
-                throw new ArgumentNullException(nameof(pskKey), "Please provide a non-empty psk value.");
+                throw new ArgumentNullException(nameof(_prefix), "Please provide a non-empty prefix value.");
             }
         }
 
@@ -32,8 +33,8 @@ namespace laget.PskAuthentication
                 if (authHeader != null)
                 {
                     var config = context.HttpContext.RequestServices.GetService<IConfiguration>();
-                    var rijndaelKey = config["Security:RijndaelKey"];
-                    var rijndaelIV = config["Security:RijndaelIV"];
+                    var rijndaelKey = config[$"{_prefix}:RijndaelKey"];
+                    var rijndaelIV = config[$"{_prefix}:RijndaelIV"];
 
                     var psk = PskAuthenticationHeaderValue.Parse(authHeader, rijndaelKey, rijndaelIV);
 
@@ -61,11 +62,10 @@ namespace laget.PskAuthentication
         public bool IsAuthorized(AuthorizationFilterContext context, Psk psk)
         {
             var config = context.HttpContext.RequestServices.GetService<IConfiguration>();
-            var salt = config["Security:Salt"];
 
             using (var algorithm = psk.Algorithm)
             {
-                var hash = algorithm.ComputeHash(Encoding.Default.GetBytes(config[_pskKey] + salt));
+                var hash = algorithm.ComputeHash(Encoding.Default.GetBytes(config[$"{_prefix}:Key"] + config[$"{_prefix}:Salt"]));
                 algorithm.Clear();
 
                 return psk.IsEqualTo(Convert.ToBase64String(hash));
