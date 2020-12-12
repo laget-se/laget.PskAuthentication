@@ -5,10 +5,10 @@ Default implementation of Secure Pre-Shared Key (PSK) Authentication for laget.s
 ### appsettings.json
 ```c#
 "Security": {
-  "Psk": "...",
-  "Salt": "...",
   "RijndaelIV": "...",
-  "RijndaelKey": "..."
+  "RijndaelKey": "...",
+  "Salt": "...",
+  "Secret": "..."
 }
 ```
 
