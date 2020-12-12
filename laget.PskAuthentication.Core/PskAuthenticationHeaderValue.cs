@@ -1,6 +1,5 @@
 ﻿using System.Collections.Specialized;
 using System.Linq;
-using System.Security;
 using System.Security.Cryptography;
 using laget.PskAuthentication.Core.Exceptions;
 
@@ -8,8 +7,8 @@ namespace laget.PskAuthentication.Core
 {
     public class PskAuthenticationHeaderValue
     {
-        static readonly string[] RequiredAttributes = { "algorithm", "ts", "hash" };
-        static readonly string[] OptionalAttributes = { "iss", "ttl" };
+        static readonly string[] RequiredAttributes = { "algorithm", "hash", "ts" };
+        static readonly string[] OptionalAttributes = { "iss", "sub", "ttl" };
         static readonly string[] SupportedAttributes;
 
         static PskAuthenticationHeaderValue()
@@ -42,18 +41,21 @@ namespace laget.PskAuthentication.Core
             var psk = new Psk
             {
                 Algorithm = GetAlgorithm(attributes["algorithm"]),
-                Timestamp = long.Parse(attributes["ts"]),
-                Hash = attributes["hash"]
+                Hash = attributes["hash"],
+                Timestamp = long.Parse(attributes["ts"])
             };
-
-            if (attributes["ttl"] != null)
-            {
-                psk.Ttl = int.Parse(attributes["ttl"]);
-            }
 
             if (attributes["iss"] != null)
             {
                 psk.Issuer = attributes["iss"];
+            }
+            if (attributes["sub"] != null)
+            {
+                psk.Issuer = attributes["sub"];
+            }
+            if (attributes["ttl"] != null)
+            {
+                psk.Ttl = int.Parse(attributes["ttl"]);
             }
 
             return psk;
@@ -66,21 +68,17 @@ namespace laget.PskAuthentication.Core
                 "SHA-256" => SHA256.Create(),
                 "SHA-384" => SHA384.Create(),
                 "SHA-512" => SHA512.Create(),
-                _ => throw new UnsupportedAlgorithmException($"{algorithm} is unsupported, please provide a supported algorithm")
+                _ => throw new PskAlgorithmException($"{algorithm} is unsupported, please provide a supported algorithm")
             };
         }
 
         static void Validate(NameValueCollection attributes)
         {
             if (!RequiredAttributes.All(a => attributes.AllKeys.Any(k => k == a)))
-            {
-                throw new SecurityException("Missing attributes");
-            }
+                throw new PskAttributeException("Missing attributes");
 
             if (!attributes.AllKeys.All(a => SupportedAttributes.Any(k => k == a)))
-            {
-                throw new SecurityException("Unknown attributes");
-            }
+                throw new PskAttributeException("Unknown attributes");
         }
     }
 }

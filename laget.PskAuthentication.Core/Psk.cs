@@ -10,18 +10,19 @@ namespace laget.PskAuthentication.Core
         const int DefaultTtl = 900;
 
         public HashAlgorithm Algorithm { get; set; }
-        public DateTime DateTime => Timestamp.ToDateTime();
+
         public long Timestamp { get; set; }
         public string Hash { get; set; }
-
-        public int Ttl { get; set; } = DefaultTtl;
+        public string Subject { get; set; } = null;
         public string Issuer { get; set; } = null;
+        public int Ttl { get; set; } = DefaultTtl;
+
 
         public bool IsValid()
         {
             if (IsExpired(Timestamp, Ttl))
             {
-                throw new PskExpiredException("The Psk (Pre-shared Key) has expired, please re-generate the psk and re-submit the request");
+                throw new PskExpiredException("The Psk (Pre-shared Key) has expired, please re-generate the psk and re-send the request");
             }
 
             return true;
@@ -39,14 +40,17 @@ namespace laget.PskAuthentication.Core
         {
             var psk = $"algorithm=SHA-{Algorithm.HashSize}, ts={Timestamp}, hash={Hash}";
 
-            if (Ttl != 0 || Ttl != DefaultTtl)
+            if (!string.IsNullOrEmpty(Subject))
             {
-                psk += $", ttl={Ttl}";
+                psk += $", sub={Subject}";
             }
-
             if (!string.IsNullOrEmpty(Issuer))
             {
                 psk += $", iss={Issuer}";
+            }
+            if (Ttl != 0 || Ttl != DefaultTtl)
+            {
+                psk += $", ttl={Ttl}";
             }
 
             return psk;
