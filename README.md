@@ -25,8 +25,6 @@ public class OptionModule : Module
 
     protected override void Load(ContainerBuilder builder)
     {
-        builder.Register(p => _configuration.GetSection("Newbody").Get<NewbodyOptions>()).As<INewbodyOptions>().SingleInstance();
-
         builder.Register(c => new PskAuthenticationAttribute(new PskAuthenticationOptions
         {
             RijndaelKey = _configuration.GetValue<string>("Security:RijndaelKey"),
