@@ -13,7 +13,7 @@ Default implementation of Secure Pre-Shared Key (PSK) Authentication for laget.s
 ```
 
 ### Autofac (DI)
-´´´c#
+```c#
 public class OptionModule : Module
 {
     readonly IConfiguration _configuration;
@@ -36,7 +36,7 @@ public class OptionModule : Module
         })).AsSelf();
     }
 }
-´´´
+```
 
 ### Controller
 ```c#
@@ -44,4 +44,3 @@ public class OptionModule : Module
 public class Receipt : ControllerBase
 {
 }
-```
