@@ -39,6 +39,6 @@ public class OptionModule : Module
 ### Controller
 ```c#
 [PskAuthentication]
-public class Receipt : ControllerBase
+public class SomeController : ControllerBase
 {
 }
