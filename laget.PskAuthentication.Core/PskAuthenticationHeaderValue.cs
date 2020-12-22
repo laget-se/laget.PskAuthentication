@@ -63,13 +63,17 @@ namespace laget.PskAuthentication.Core
 
         static HashAlgorithm GetAlgorithm(string algorithm)
         {
-            return algorithm switch
+            switch (algorithm)
             {
-                "SHA-256" => SHA256.Create(),
-                "SHA-384" => SHA384.Create(),
-                "SHA-512" => SHA512.Create(),
-                _ => throw new PskAlgorithmException($"{algorithm} is unsupported, please provide a supported algorithm")
-            };
+                case "SHA-256":
+                    return SHA256.Create();
+                case "SHA-384":
+                    return SHA384.Create();
+                case "SHA-512":
+                    return SHA512.Create();
+                default:
+                    throw new PskAlgorithmException($"{algorithm} is unsupported, please provide a supported algorithm");
+            }
         }
 
         static void Validate(NameValueCollection attributes)
