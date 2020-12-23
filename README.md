@@ -1,5 +1,14 @@
-﻿# laget.PskAuthentication
+# laget.PskAuthentication
 Default implementation of Secure Pre-Shared Key (PSK) Authentication for laget.se using Rijndael.
+
+![Nuget](https://img.shields.io/nuget/v/laget.PskAuthentication.Client?label=laget.PskAuthentication.Client)
+![Nuget](https://img.shields.io/nuget/dt/laget.PskAuthentication.Client?label=laget.PskAuthentication.Client)
+
+![Nuget](https://img.shields.io/nuget/v/laget.PskAuthentication.Core?label=laget.PskAuthentication.Core)
+![Nuget](https://img.shields.io/nuget/dt/laget.PskAuthentication.Core?label=laget.PskAuthentication.Core)
+
+![Nuget](https://img.shields.io/nuget/v/laget.PskAuthentication.Mvc?label=laget.PskAuthentication.Mvc)
+![Nuget](https://img.shields.io/nuget/dt/laget.PskAuthentication.Mvc?label=laget.PskAuthentication.Mvc)
 
 ## Usage
 ### appsettings.json
