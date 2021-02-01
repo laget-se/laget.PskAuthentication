@@ -4,7 +4,7 @@ using laget.PskAuthentication.Client.Extensions;
 using laget.PskAuthentication.Core;
 using Xunit;
 
-namespace laget.PskAuthentication.Tests.Extensions
+namespace laget.PskAuthentication.Client.Tests.Extensions
 {
     public class HttpClientTests
     {

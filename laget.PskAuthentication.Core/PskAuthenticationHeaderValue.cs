@@ -7,9 +7,9 @@ namespace laget.PskAuthentication.Core
 {
     public class PskAuthenticationHeaderValue
     {
-        static readonly string[] RequiredAttributes = { "algorithm", "hash", "ts" };
-        static readonly string[] OptionalAttributes = { "iss", "sub", "ttl" };
-        static readonly string[] SupportedAttributes;
+        private static readonly string[] RequiredAttributes = { "algorithm", "hash", "ts" };
+        private static readonly string[] OptionalAttributes = { "iss", "sub", "ttl" };
+        private static readonly string[] SupportedAttributes;
 
         static PskAuthenticationHeaderValue()
         {
@@ -61,7 +61,7 @@ namespace laget.PskAuthentication.Core
             return psk;
         }
 
-        static HashAlgorithm GetAlgorithm(string algorithm)
+        private static HashAlgorithm GetAlgorithm(string algorithm)
         {
             switch (algorithm)
             {
@@ -76,7 +76,7 @@ namespace laget.PskAuthentication.Core
             }
         }
 
-        static void Validate(NameValueCollection attributes)
+        private static void Validate(NameValueCollection attributes)
         {
             if (!RequiredAttributes.All(a => attributes.AllKeys.Any(k => k == a)))
                 throw new PskAttributeException("Missing attributes");

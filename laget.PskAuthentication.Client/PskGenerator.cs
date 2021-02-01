@@ -8,13 +8,13 @@ namespace laget.PskAuthentication.Client
 {
     public class PskGenerator
     {
-        readonly string _rijndaelIv;
-        readonly string _rijndaelKey;
-        readonly string _salt;
-        readonly string _secret;
-        readonly int _ttl;
+        private readonly string _rijndaelIv;
+        private readonly string _rijndaelKey;
+        private readonly string _salt;
+        private readonly string _secret;
+        private readonly int _ttl;
 
-        HashAlgorithm Algorithm { get; set; } = SHA512.Create();
+        private HashAlgorithm Algorithm { get; set; } = SHA512.Create();
 
         public PskGenerator(string rijndaelIv, string rijndaelKey)
         {
@@ -46,7 +46,7 @@ namespace laget.PskAuthentication.Client
             return PskEncryptor.Encrypt(psk, _rijndaelKey, _rijndaelIv);
         }
 
-        string GetHash(string salt, string secret)
+        private string GetHash(string salt, string secret)
         {
             var type = Algorithm.GetType();
 

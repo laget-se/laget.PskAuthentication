@@ -1,9 +1,8 @@
 ﻿using FluentAssertions;
-using laget.PskAuthentication.Core;
 using laget.PskAuthentication.Core.Extensions;
 using Xunit;
 
-namespace laget.PskAuthentication.Tests.Extensions
+namespace laget.PskAuthentication.Core.Tests.Extensions
 {
     public class PskTests
     {

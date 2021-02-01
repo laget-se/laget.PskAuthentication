@@ -4,7 +4,7 @@ namespace laget.PskAuthentication.Core.Extensions
 {
     public static class DateTimeExtensions
     {
-        static readonly DateTime Epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+        private static readonly DateTime Epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
         public static long ToUnix(this DateTime dateTime)
         {
@@ -21,14 +21,14 @@ namespace laget.PskAuthentication.Core.Extensions
             return Convert(epoch);
         }
 
-        static long Convert(DateTime date)
+        private static long Convert(DateTime date)
         {
             var origin = new DateTime(1970, 1, 1, 0, 0, 0, 0);
             var diff = date.ToUniversalTime() - origin;
             return (long)Math.Floor(diff.TotalSeconds);
         }
 
-        static DateTime Convert(long epoch)
+        private static DateTime Convert(long epoch)
         {
             return Epoch.AddSeconds(epoch);
         }

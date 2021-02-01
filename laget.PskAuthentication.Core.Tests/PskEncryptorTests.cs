@@ -1,4 +1,4 @@
-﻿namespace laget.PskAuthentication.Tests
+﻿namespace laget.PskAuthentication.Core.Tests
 {
     public class PskEncryptorTests
     {

@@ -1,14 +1,13 @@
 ﻿using System.Security.Cryptography;
 using FluentAssertions;
-using laget.PskAuthentication.Client;
 using laget.PskAuthentication.Core;
 using Xunit;
 
-namespace laget.PskAuthentication.Tests
+namespace laget.PskAuthentication.Client.Tests
 {
     public class PskGeneratorTests
     {
-        readonly PskAuthenticationOptions _options;
+        private readonly PskAuthenticationOptions _options;
 
         public PskGeneratorTests()
         {

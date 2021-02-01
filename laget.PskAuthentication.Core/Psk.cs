@@ -7,7 +7,7 @@ namespace laget.PskAuthentication.Core
 {
     public class Psk
     {
-        const int DefaultTtl = 900;
+        private const int DefaultTtl = 900;
 
         public HashAlgorithm Algorithm { get; set; }
 

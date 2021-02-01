@@ -10,7 +10,7 @@ namespace laget.PskAuthentication.Mvc
 {
     public class PskAuthenticationFilter : IAuthorizationFilter
     {
-        readonly PskAuthenticationOptions _options;
+        private readonly PskAuthenticationOptions _options;
 
         public PskAuthenticationFilter(PskAuthenticationOptions options)
         {
@@ -59,7 +59,7 @@ namespace laget.PskAuthentication.Mvc
             }
         }
 
-        static void ReturnUnauthorizedResult(AuthorizationFilterContext context, string reason)
+        private static void ReturnUnauthorizedResult(AuthorizationFilterContext context, string reason)
         {
             context.HttpContext.Response.Headers["WWW-Authenticate"] = $"PSK {reason}";
             context.Result = new UnauthorizedResult();
