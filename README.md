@@ -10,18 +10,8 @@ Default implementation of Secure Pre-Shared Key (PSK) Authentication for laget.s
 ![Nuget](https://img.shields.io/nuget/v/laget.PskAuthentication.Mvc?label=laget.PskAuthentication.Mvc)
 ![Nuget](https://img.shields.io/nuget/dt/laget.PskAuthentication.Mvc?label=laget.PskAuthentication.Mvc)
 
-## Usage
-### appsettings.json
-```c#
-"Security": {
-  "RijndaelIV": "...",
-  "RijndaelKey": "...",
-  "Salt": "...",
-  "Secret": "..."
-}
-```
-
-### Autofac
+## Configuration
+> This example is shown using Autofac since this is the go-to IoC for us.
 ```c#
 public class OptionModule : Module
 {
@@ -45,6 +35,17 @@ public class OptionModule : Module
 }
 ```
 
+### appsettings.json
+```c#
+"Security": {
+  "RijndaelIV": "...",
+  "RijndaelKey": "...",
+  "Salt": "...",
+  "Secret": "..."
+}
+```
+
+## Usage
 ### Controller
 ```c#
 [PskAuthentication]
