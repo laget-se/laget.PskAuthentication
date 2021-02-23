@@ -21,7 +21,7 @@ Default implementation of Secure Pre-Shared Key (PSK) Authentication for laget.s
 }
 ```
 
-### Autofac (DI)
+### Autofac
 ```c#
 public class OptionModule : Module
 {
