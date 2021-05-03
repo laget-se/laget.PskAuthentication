@@ -22,6 +22,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "laget.PskAuthentication.Cor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "laget.PskAuthentication.Mvc.Tests", "laget.PskAuthentication.Mvc.Tests\laget.PskAuthentication.Mvc.Tests.csproj", "{54DDBEC0-D7AA-40A8-AEBA-F6FBC74962F3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{EE6C721D-C407-47B5-B62F-DB4DE08DCE17}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8B9EA26C-AB70-4B2E-9C46-62FE820EE92B} = {EE6C721D-C407-47B5-B62F-DB4DE08DCE17}
+		{0C8A9C68-036B-472E-AC12-4AAEA475B122} = {EE6C721D-C407-47B5-B62F-DB4DE08DCE17}
+		{54DDBEC0-D7AA-40A8-AEBA-F6FBC74962F3} = {EE6C721D-C407-47B5-B62F-DB4DE08DCE17}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {27E87F42-4694-4C0E-8C70-7137A90BF15B}
