@@ -54,7 +54,7 @@ public class SomeController : ControllerBase
 }
 ```
 
-## Secrets
+## Rijndael
 You can generate the necessary Rijndael properties via the code below or visit https://rextester.com/EFWCK32767
 
 ```c#
