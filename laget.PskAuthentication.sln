@@ -24,6 +24,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "laget.PskAuthentication.Mvc
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{EE6C721D-C407-47B5-B62F-DB4DE08DCE17}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "laget.PskAuthentication.Generator", "laget.PskAuthentication.Generator\laget.PskAuthentication.Generator.csproj", "{AC98B2D3-3E24-42F8-9900-A31EF80AE0B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -80,6 +82,14 @@ Global
 		{54DDBEC0-D7AA-40A8-AEBA-F6FBC74962F3}.Stage|Any CPU.Build.0 = Debug|Any CPU
 		{54DDBEC0-D7AA-40A8-AEBA-F6FBC74962F3}.Test|Any CPU.ActiveCfg = Debug|Any CPU
 		{54DDBEC0-D7AA-40A8-AEBA-F6FBC74962F3}.Test|Any CPU.Build.0 = Debug|Any CPU
+		{AC98B2D3-3E24-42F8-9900-A31EF80AE0B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC98B2D3-3E24-42F8-9900-A31EF80AE0B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC98B2D3-3E24-42F8-9900-A31EF80AE0B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC98B2D3-3E24-42F8-9900-A31EF80AE0B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC98B2D3-3E24-42F8-9900-A31EF80AE0B6}.Stage|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC98B2D3-3E24-42F8-9900-A31EF80AE0B6}.Stage|Any CPU.Build.0 = Debug|Any CPU
+		{AC98B2D3-3E24-42F8-9900-A31EF80AE0B6}.Test|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC98B2D3-3E24-42F8-9900-A31EF80AE0B6}.Test|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
