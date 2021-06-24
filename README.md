@@ -52,3 +52,31 @@ public class OptionModule : Module
 public class SomeController : ControllerBase
 {
 }
+```
+
+## Secrets
+You can generate the necessary Rijndael properties via the code below or visit https://rextester.com/EFWCK32767
+
+```c#
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Security.Cryptography;
+    
+namespace Rextester
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            var Rijndael = new RijndaelManaged();
+            Rijndael.GenerateIV();
+            Rijndael.GenerateKey();
+            
+            Console.WriteLine(Convert.ToBase64String(Rijndael.IV));
+            Console.WriteLine(Convert.ToBase64String(Rijndael.Key));
+        }
+    }
+}
+```
