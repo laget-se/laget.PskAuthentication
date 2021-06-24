@@ -11,11 +11,6 @@ namespace laget.PskAuthentication.Generator
         private static async Task Main(string[] args)
         {
             await Host.CreateDefaultBuilder()
-                //.ConfigureContainer<ContainerBuilder>((context, builder) =>
-                //{
-                //    builder.RegisterModule<RepositoryModule>();
-                //    builder.RegisterModule<ServiceModule>();
-                //})
                 .ConfigureServices((context, services) =>
                 {
                     services.AddHostedService<Service>();
@@ -23,7 +18,6 @@ namespace laget.PskAuthentication.Generator
                 .UseConsoleLifetime()
                 .UseEnvironment(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Development")
                 .UseSerilog((context, services, configuration) => configuration.ReadFrom.Configuration(context.Configuration))
-                //.UseServiceProviderFactory(new AutofacServiceProviderFactory())
                 .Build()
                 .RunAsync();
         }
