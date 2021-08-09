@@ -27,10 +27,10 @@ namespace laget.PskAuthentication.Generator
                 RijndaelKey = _configuration.GetValue<string>("Security:RijndaelKey"),
                 Salt = _configuration.GetValue<string>("Security:Salt"),
                 Secret = _configuration.GetValue<string>("Security:Secret"),
-                Ttl = 315360000
+                Ttl = ttl
             };
             var generator = new PskGenerator(options);
-            var psk = generator.Generate();
+            var psk = generator.Generate(ttl);
 
             Log.Information("PSK:");
             Log.Information(psk);
