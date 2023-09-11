@@ -4,7 +4,7 @@
     <id>laget.PskAuthentication.Mvc</id>
     <title>laget.PskAuthentication.Mvc</title>
     <version>$version$</version>
-    <authors>gonace,laget.se</authors>
+    <authors>laget.se</authors>
     <owners>laget.se</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Default implementation of Secure Pre-Shared Key (PSK) Authentication for laget.se using Rijndael.</description>
