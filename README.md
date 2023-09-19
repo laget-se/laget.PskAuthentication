@@ -54,8 +54,8 @@ public class SomeController : ControllerBase
 }
 ```
 
-## Rijndael
-You can generate the necessary Rijndael properties via the code below or visit https://rextester.com/RMKPPK46300
+## Aes
+You can generate the necessary Aes properties via the code below or visit https://rextester.com/RMKPPK46300
 
 ```c#
 using System;
