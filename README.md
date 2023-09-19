@@ -1,5 +1,5 @@
 # laget.PskAuthentication
-Default implementation of Secure Pre-Shared Key (PSK) Authentication for laget.se using AES.
+Generic implementation of Secure Pre-Shared Key (PSK) Authentication for laget.se using AES.
 
 ![Nuget](https://img.shields.io/nuget/v/laget.PskAuthentication.Client?label=laget.PskAuthentication.Client)
 ![Nuget](https://img.shields.io/nuget/dt/laget.PskAuthentication.Client?label=laget.PskAuthentication.Client)
