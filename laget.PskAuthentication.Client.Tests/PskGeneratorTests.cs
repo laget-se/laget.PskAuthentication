@@ -1,6 +1,6 @@
-﻿using System.Security.Cryptography;
-using FluentAssertions;
+﻿using FluentAssertions;
 using laget.PskAuthentication.Core;
+using System.Security.Cryptography;
 using Xunit;
 
 namespace laget.PskAuthentication.Client.Tests
@@ -13,8 +13,8 @@ namespace laget.PskAuthentication.Client.Tests
         {
             _options = new PskAuthenticationOptions
             {
-                RijndaelIV = "fWN4n4pXsrXSJCdN9HfjiA==",
-                RijndaelKey = "J/IsWTGD5Sx2B124mtDg0Pg8AGslPADgGgiOj0kfxh0=",
+                IV = "fWN4n4pXsrXSJCdN9HfjiA==",
+                Key = "J/IsWTGD5Sx2B124mtDg0Pg8AGslPADgGgiOj0kfxh0=",
                 Salt = "fenga1N3BYtRzwV9",
                 Secret = "Banana"
             };

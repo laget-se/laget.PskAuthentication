@@ -1,7 +1,7 @@
-﻿using System.Collections.Specialized;
+﻿using laget.PskAuthentication.Core.Exceptions;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Security.Cryptography;
-using laget.PskAuthentication.Core.Exceptions;
 
 namespace laget.PskAuthentication.Core
 {
@@ -16,24 +16,25 @@ namespace laget.PskAuthentication.Core
             SupportedAttributes = RequiredAttributes.Concat(OptionalAttributes).ToArray();
         }
 
-        public static Psk Parse(string authorization, string rijndaelKey, string rijndaelIV)
+        public static Psk Parse(string header, string key, string iv)
         {
-            authorization = PskEncryptor.Decrypt(authorization, rijndaelKey, rijndaelIV);
+            var cryptographer = new Cryptography.Cryptographer(key, iv);
+            header = cryptographer.Decrypt(header);
 
             var attributes = new NameValueCollection();
 
-            foreach (var attribute in authorization.Split(','))
+            foreach (var attribute in header.Split(','))
             {
                 var index = attribute.IndexOf('=');
                 if (index <= 0) continue;
 
-                var key = attribute.Substring(0, index).Trim();
-                var value = attribute.Substring(index + 1).Trim();
+                var k = attribute.Substring(0, index).Trim();
+                var v = attribute.Substring(index + 1).Trim();
 
-                if (value.StartsWith("\""))
-                    value = value.Substring(1, value.Length - 2);
+                if (v.StartsWith("\""))
+                    v = v.Substring(1, v.Length - 2);
 
-                attributes.Add(key, value);
+                attributes.Add(k, v);
             }
 
             Validate(attributes);

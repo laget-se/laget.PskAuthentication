@@ -1,10 +1,10 @@
-﻿using System;
-using System.Text;
-using laget.PskAuthentication.Core;
+﻿using laget.PskAuthentication.Core;
 using laget.PskAuthentication.Core.Exceptions;
 using laget.PskAuthentication.Core.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using System;
+using System.Text;
 
 namespace laget.PskAuthentication.Mvc
 {
@@ -21,11 +21,11 @@ namespace laget.PskAuthentication.Mvc
         {
             try
             {
-                string authHeader = context.HttpContext.Request.Headers[_options.HeaderName];
+                string header = context.HttpContext.Request.Headers[_options.HeaderName];
 
-                if (authHeader != null)
+                if (header != null)
                 {
-                    var psk = PskAuthenticationHeaderValue.Parse(authHeader, _options.RijndaelKey, _options.RijndaelIV);
+                    var psk = PskAuthenticationHeaderValue.Parse(header, _options.Key, _options.IV);
 
                     if (psk.IsValid())
                     {

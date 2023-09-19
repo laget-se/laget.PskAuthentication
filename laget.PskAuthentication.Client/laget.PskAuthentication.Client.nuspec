@@ -15,8 +15,12 @@
     <readme>assets\README.md</readme>
     <repository type="git" url="https://github.com/laget-se/laget.PskAuthentication" branch="master" />
     <dependencies>
-      <group targetFramework="netstandard2.1"></group>
-      <group targetFramework="netstandard2.0"></group>
+      <group targetFramework="netstandard2.1">
+        <dependency id="laget.Cryptography" version="0.1.3" />
+      </group>
+      <group targetFramework="netstandard2.0">
+        <dependency id="laget.Cryptography" version="0.1.3" />
+      </group>
     </dependencies>
   </metadata>
   <files>

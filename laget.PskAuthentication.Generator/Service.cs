@@ -1,11 +1,11 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using laget.PskAuthentication.Client;
+﻿using laget.PskAuthentication.Client;
 using laget.PskAuthentication.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Serilog;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace laget.PskAuthentication.Generator
 {
@@ -23,8 +23,8 @@ namespace laget.PskAuthentication.Generator
             var ttl = 315360000; // 10 years in seconds
             var options = new PskAuthenticationOptions
             {
-                RijndaelIV = _configuration.GetValue<string>("Security:RijndaelIV"),
-                RijndaelKey = _configuration.GetValue<string>("Security:RijndaelKey"),
+                IV = _configuration.GetValue<string>("Security:RijndaelIV"),
+                Key = _configuration.GetValue<string>("Security:RijndaelKey"),
                 Salt = _configuration.GetValue<string>("Security:Salt"),
                 Secret = _configuration.GetValue<string>("Security:Secret"),
                 Ttl = ttl

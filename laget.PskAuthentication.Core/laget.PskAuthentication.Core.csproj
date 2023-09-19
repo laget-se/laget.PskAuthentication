@@ -6,4 +6,8 @@
     <NuspecProperties>version=$(Version)</NuspecProperties>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="laget.Cryptography" Version="0.1.3" />
+  </ItemGroup>
+
 </Project>
