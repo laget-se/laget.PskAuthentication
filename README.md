@@ -55,7 +55,7 @@ public class SomeController : ControllerBase
 ```
 
 ## Rijndael
-You can generate the necessary Rijndael properties via the code below or visit https://rextester.com/EFWCK32767
+You can generate the necessary Rijndael properties via the code below or visit https://rextester.com/RMKPPK46300
 
 ```c#
 using System;
@@ -70,12 +70,14 @@ namespace Rextester
     {
         public static void Main(string[] args)
         {
-            var Rijndael = new RijndaelManaged();
-            Rijndael.GenerateIV();
-            Rijndael.GenerateKey();
+            var aes = Aes.Create();
+            aes.Mode = CipherMode.CBC;
+            aes.Padding = PaddingMode.PKCS7;
+            aes.GenerateIV();
+            aes.GenerateKey();
             
-            Console.WriteLine(Convert.ToBase64String(Rijndael.IV));
-            Console.WriteLine(Convert.ToBase64String(Rijndael.Key));
+            Console.WriteLine(Convert.ToBase64String(aes.IV));
+            Console.WriteLine(Convert.ToBase64String(aes.Key));
         }
     }
 }
