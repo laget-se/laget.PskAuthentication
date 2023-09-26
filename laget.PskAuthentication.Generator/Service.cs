@@ -23,8 +23,8 @@ namespace laget.PskAuthentication.Generator
             var ttl = 315360000; // 10 years in seconds
             var options = new PskAuthenticationOptions
             {
-                IV = _configuration.GetValue<string>("Security:RijndaelIV"),
-                Key = _configuration.GetValue<string>("Security:RijndaelKey"),
+                IV = _configuration.GetValue<string>("Security:IV"),
+                Key = _configuration.GetValue<string>("Security:Key"),
                 Salt = _configuration.GetValue<string>("Security:Salt"),
                 Secret = _configuration.GetValue<string>("Security:Secret"),
                 Ttl = ttl
