@@ -1,0 +1,69 @@
+﻿name: Publish
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  tests:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: |
+          7.0.x
+          6.0.x
+          3.1.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore --configuration Release
+    - name: Test
+      run: dotnet test --no-build --configuration Release --verbosity normal
+
+  publish_core:
+    runs-on: ubuntu-latest
+    needs: tests
+    name: 'Publish laget.PskAuthentication.Core'
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+    - run: dotnet restore
+    - run: dotnet build --configuration Release laget.PskAuthentication.Core/laget.PskAuthentication.Core.csproj
+    - run: dotnet pack --configuration Release laget.PskAuthentication.Core/laget.PskAuthentication.Core.csproj --no-build -p:Version=${{vars.VERSION}}.${{github.run_number}} -p:PackageVersion=${{vars.VERSION}}.${{github.run_number}} -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg -p:NuspecFile=laget.PskAuthentication.Core.nuspec
+    - run: dotnet nuget push laget.PskAuthentication.Core/bin/Release/laget.PskAuthentication.Core.${{vars.VERSION}}.${{github.run_number}}.nupkg --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json --skip-duplicate
+
+  publish_client:
+    runs-on: ubuntu-latest
+    needs: tests
+    name: 'Publish laget.PskAuthentication.Client'
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+    - run: dotnet restore
+    - run: dotnet build --configuration Release laget.PskAuthentication.Client/laget.PskAuthentication.Client.csproj
+    - run: dotnet pack --configuration Release laget.PskAuthentication.Client/laget.PskAuthentication.Client.csproj --no-build -p:Version=${{vars.VERSION}}.${{github.run_number}} -p:PackageVersion=${{vars.VERSION}}.${{github.run_number}} -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg -p:NuspecFile=laget.PskAuthentication.Client.nuspec
+    - run: dotnet nuget push laget.PskAuthentication.Client/bin/Release/laget.PskAuthentication.Client.${{vars.VERSION}}.${{github.run_number}}.nupkg --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json --skip-duplicate
+
+  publish_mvc:
+    runs-on: ubuntu-latest
+    needs: tests
+    name: 'Publish laget.PskAuthentication.Mvc'
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+    - run: dotnet restore
+    - run: dotnet build --configuration Release laget.PskAuthentication.Mvc/laget.PskAuthentication.Mvc.csproj
+    - run: dotnet pack --configuration Release laget.PskAuthentication.Mvc/laget.PskAuthentication.Mvc.csproj --no-build -p:Version=${{vars.VERSION}}.${{github.run_number}} -p:PackageVersion=${{vars.VERSION}}.${{github.run_number}} -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg -p:NuspecFile=laget.PskAuthentication.Mvc.nuspec
+    - run: dotnet nuget push laget.PskAuthentication.Mvc/bin/Release/laget.PskAuthentication.Mvc.${{vars.VERSION}}.${{github.run_number}}.nupkg --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json --skip-duplicate
