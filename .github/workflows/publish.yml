@@ -13,6 +13,7 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: |
+          8.0.x
           7.0.x
           6.0.x
           3.1.x
@@ -32,7 +33,7 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 8.0.x
     - run: dotnet restore
     - run: dotnet build --configuration Release laget.PskAuthentication.Core/laget.PskAuthentication.Core.csproj
     - run: dotnet pack --configuration Release laget.PskAuthentication.Core/laget.PskAuthentication.Core.csproj --no-build -p:Version=${{vars.VERSION}}.${{github.run_number}} -p:PackageVersion=${{vars.VERSION}}.${{github.run_number}} -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg -p:NuspecFile=laget.PskAuthentication.Core.nuspec
@@ -47,7 +48,7 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 8.0.x
     - run: dotnet restore
     - run: dotnet build --configuration Release laget.PskAuthentication.Client/laget.PskAuthentication.Client.csproj
     - run: dotnet pack --configuration Release laget.PskAuthentication.Client/laget.PskAuthentication.Client.csproj --no-build -p:Version=${{vars.VERSION}}.${{github.run_number}} -p:PackageVersion=${{vars.VERSION}}.${{github.run_number}} -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg -p:NuspecFile=laget.PskAuthentication.Client.nuspec
@@ -62,7 +63,7 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 8.0.x
     - run: dotnet restore
     - run: dotnet build --configuration Release laget.PskAuthentication.Mvc/laget.PskAuthentication.Mvc.csproj
     - run: dotnet pack --configuration Release laget.PskAuthentication.Mvc/laget.PskAuthentication.Mvc.csproj --no-build -p:Version=${{vars.VERSION}}.${{github.run_number}} -p:PackageVersion=${{vars.VERSION}}.${{github.run_number}} -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg -p:NuspecFile=laget.PskAuthentication.Mvc.nuspec
