@@ -37,31 +37,36 @@ namespace laget.PskAuthentication.Mvc
             try
             {
                 var psk = PskAuthenticationHeaderValue.Parse(token, _pskAuthenticationOptions.Key, _pskAuthenticationOptions.IV);
-                if (!psk.IsValid())
+                if (psk.IsValid())
                 {
-                    if (!IsAuthorized(_pskAuthenticationOptions, psk))
+                    if (IsAuthorized(_pskAuthenticationOptions, psk))
                     {
-                        return AuthenticateResult.Fail("Invalid PSK");
+                        var claims = new[] { new Claim(ClaimTypes.Expiration, psk.Timestamp.ToString()) };
+                        var claimsIdentity = new ClaimsIdentity(claims, Scheme.Name);
+                        var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+                        return AuthenticateResult.Success(new AuthenticationTicket(claimsPrincipal, Scheme.Name));
                     }
 
                     return AuthenticateResult.Fail("Invalid PSK");
                 }
 
-                var claims = new[] { new Claim(ClaimTypes.Expiration, psk.Timestamp.ToString()) };
-                var claimsIdentity = new ClaimsIdentity(claims, Scheme.Name);
-                var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
-                return AuthenticateResult.Success(new AuthenticationTicket(claimsPrincipal, Scheme.Name));
+                return AuthenticateResult.Fail("Invalid PSK");
             }
             catch (PskExpiredException ex)
             {
-                AuthenticateResult.Fail($"PskExpiredException: {ex.Message}");
+                Logger.LogError(ex.Message, ex);
+                return AuthenticateResult.Fail($"PskExpiredException: {ex.Message}");
             }
             catch (FormatException ex)
             {
-                AuthenticateResult.Fail($"FormatException: {ex.Message}");
+                Logger.LogError(ex.Message, ex);
+                return AuthenticateResult.Fail($"FormatException: {ex.Message}");
             }
-
-            return AuthenticateResult.Fail("Unknown");
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.Message, ex);
+                return AuthenticateResult.Fail("Unknown");
+            }
         }
 
         public bool IsAuthorized(PskAuthenticationOptions options, Psk psk)
