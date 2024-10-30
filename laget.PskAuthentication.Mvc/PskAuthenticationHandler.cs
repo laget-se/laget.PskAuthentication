@@ -37,7 +37,6 @@ namespace laget.PskAuthentication.Mvc
             try
             {
                 var psk = PskAuthenticationHeaderValue.Parse(token, _pskAuthenticationOptions.Key, _pskAuthenticationOptions.IV);
-
                 if (!psk.IsValid())
                 {
                     if (!IsAuthorized(_pskAuthenticationOptions, psk))
