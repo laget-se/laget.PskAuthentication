@@ -1,6 +1,4 @@
 ﻿using laget.PskAuthentication.Core;
-using laget.PskAuthentication.Core.Exceptions;
-using laget.PskAuthentication.Core.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;

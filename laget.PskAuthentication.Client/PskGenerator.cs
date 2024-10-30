@@ -1,5 +1,4 @@
 ﻿using laget.PskAuthentication.Core;
-using laget.PskAuthentication.Core.Extensions;
 using System;
 using System.Security.Cryptography;
 using System.Text;

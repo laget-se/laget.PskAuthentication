@@ -1,10 +1,9 @@
 ﻿using FluentAssertions;
-using laget.PskAuthentication.Core.Extensions;
 using Xunit;
 
-namespace laget.PskAuthentication.Core.Tests.Extensions
+namespace laget.PskAuthentication.Core.Tests
 {
-    public class PskTests
+    public class PskExtensionsTests
     {
         [Fact]
         public void ShouldConvertDateTimeToUnixTimestamp()

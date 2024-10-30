@@ -20,13 +20,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "laget.PskAuthentication.Cli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "laget.PskAuthentication.Core.Tests", "laget.PskAuthentication.Core.Tests\laget.PskAuthentication.Core.Tests.csproj", "{0C8A9C68-036B-472E-AC12-4AAEA475B122}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "laget.PskAuthentication.Mvc.Tests", "laget.PskAuthentication.Mvc.Tests\laget.PskAuthentication.Mvc.Tests.csproj", "{54DDBEC0-D7AA-40A8-AEBA-F6FBC74962F3}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{EE6C721D-C407-47B5-B62F-DB4DE08DCE17}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "laget.PskAuthentication.Generator", "laget.PskAuthentication.Generator\laget.PskAuthentication.Generator.csproj", "{AC98B2D3-3E24-42F8-9900-A31EF80AE0B6}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{DBED6CEF-53DB-485D-9240-ED71BF2114F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -76,14 +72,6 @@ Global
 		{0C8A9C68-036B-472E-AC12-4AAEA475B122}.Stage|Any CPU.Build.0 = Debug|Any CPU
 		{0C8A9C68-036B-472E-AC12-4AAEA475B122}.Test|Any CPU.ActiveCfg = Debug|Any CPU
 		{0C8A9C68-036B-472E-AC12-4AAEA475B122}.Test|Any CPU.Build.0 = Debug|Any CPU
-		{54DDBEC0-D7AA-40A8-AEBA-F6FBC74962F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{54DDBEC0-D7AA-40A8-AEBA-F6FBC74962F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{54DDBEC0-D7AA-40A8-AEBA-F6FBC74962F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{54DDBEC0-D7AA-40A8-AEBA-F6FBC74962F3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{54DDBEC0-D7AA-40A8-AEBA-F6FBC74962F3}.Stage|Any CPU.ActiveCfg = Debug|Any CPU
-		{54DDBEC0-D7AA-40A8-AEBA-F6FBC74962F3}.Stage|Any CPU.Build.0 = Debug|Any CPU
-		{54DDBEC0-D7AA-40A8-AEBA-F6FBC74962F3}.Test|Any CPU.ActiveCfg = Debug|Any CPU
-		{54DDBEC0-D7AA-40A8-AEBA-F6FBC74962F3}.Test|Any CPU.Build.0 = Debug|Any CPU
 		{AC98B2D3-3E24-42F8-9900-A31EF80AE0B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AC98B2D3-3E24-42F8-9900-A31EF80AE0B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC98B2D3-3E24-42F8-9900-A31EF80AE0B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -99,8 +87,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{8B9EA26C-AB70-4B2E-9C46-62FE820EE92B} = {EE6C721D-C407-47B5-B62F-DB4DE08DCE17}
 		{0C8A9C68-036B-472E-AC12-4AAEA475B122} = {EE6C721D-C407-47B5-B62F-DB4DE08DCE17}
-		{54DDBEC0-D7AA-40A8-AEBA-F6FBC74962F3} = {EE6C721D-C407-47B5-B62F-DB4DE08DCE17}
-		{AC98B2D3-3E24-42F8-9900-A31EF80AE0B6} = {DBED6CEF-53DB-485D-9240-ED71BF2114F0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {27E87F42-4694-4C0E-8C70-7137A90BF15B}

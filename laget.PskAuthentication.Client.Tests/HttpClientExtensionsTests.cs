@@ -1,16 +1,15 @@
 ﻿using FluentAssertions;
-using laget.PskAuthentication.Client.Extensions;
 using laget.PskAuthentication.Core;
 using System.Net.Http;
 using Xunit;
 
-namespace laget.PskAuthentication.Client.Tests.Extensions
+namespace laget.PskAuthentication.Client.Tests
 {
-    public class HttpClientTests
+    public class HttpClientExtensionsTests
     {
         readonly PskAuthenticationOptions _options;
 
-        public HttpClientTests()
+        public HttpClientExtensionsTests()
         {
             _options = new PskAuthenticationOptions
             {

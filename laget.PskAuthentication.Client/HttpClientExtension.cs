@@ -1,7 +1,7 @@
-﻿using System.Net.Http;
-using laget.PskAuthentication.Core;
+﻿using laget.PskAuthentication.Core;
+using System.Net.Http;
 
-namespace laget.PskAuthentication.Client.Extensions
+namespace laget.PskAuthentication.Client
 {
     public static class HttpClientExtensions
     {

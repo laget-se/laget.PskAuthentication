@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace laget.PskAuthentication.Core.Exceptions
+namespace laget.PskAuthentication.Core
 {
     public class PskAlgorithmException : Exception
     {

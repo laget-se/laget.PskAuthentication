@@ -1,5 +1,4 @@
-﻿using laget.PskAuthentication.Core.Exceptions;
-using System.Collections.Specialized;
+﻿using System.Collections.Specialized;
 using System.Linq;
 using System.Security.Cryptography;
 

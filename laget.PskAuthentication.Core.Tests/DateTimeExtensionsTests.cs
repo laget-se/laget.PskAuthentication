@@ -1,11 +1,10 @@
 ﻿using FluentAssertions;
-using laget.PskAuthentication.Core.Extensions;
 using System;
 using Xunit;
 
-namespace laget.PskAuthentication.Core.Tests.Extensions
+namespace laget.PskAuthentication.Core.Tests
 {
-    public class DateTimeTests
+    public class DateTimeExtensionsTests
     {
         private const long Epoch = 1577836800;
 

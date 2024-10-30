@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Security.Cryptography;
-using laget.PskAuthentication.Core.Exceptions;
-using laget.PskAuthentication.Core.Extensions;
 
 namespace laget.PskAuthentication.Core
 {

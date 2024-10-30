@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace laget.PskAuthentication.Core.Extensions
+namespace laget.PskAuthentication.Core
 {
     public static class DateTimeExtensions
     {
