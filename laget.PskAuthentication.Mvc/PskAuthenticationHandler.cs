@@ -44,6 +44,8 @@ namespace laget.PskAuthentication.Mvc
                     {
                         return AuthenticateResult.Fail("Invalid PSK");
                     }
+
+                    return AuthenticateResult.Fail("Invalid PSK");
                 }
 
                 var claims = new[] { new Claim(ClaimTypes.Expiration, psk.Timestamp.ToString()) };
